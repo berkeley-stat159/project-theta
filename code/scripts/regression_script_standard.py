@@ -54,7 +54,7 @@ for i in range(1,17):
     # mea=calcMRSS(data_full, gain_full, loss_full, None, None, threshold)
     X, Y, beta=calcBeta(data_full, gain_full, loss_full, None, None, threshold)
     # calculate t values
-    t_val=np.zeros((2,139264))
+    t_val=np.zeros((2,902629))
     for k in range(Y.shape[1]):
         t_val[:,k] = significant(X,Y[:,k], beta[:,k])
     # file names for beta and t
