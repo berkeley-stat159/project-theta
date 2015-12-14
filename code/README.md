@@ -46,5 +46,5 @@ be found in their respective READMEs.
 The exhaustive results, including all figures and intermediate results files, 
 are saved in a local, untracked directory `project-theta/results` initailized 
 by running the make command `make resultfolder` from `project-theta` directory. 
-All paper figures are saved in `project-alpha/paper/figures`, which also caches the 
+All paper figures are saved in `project-theta/paper/figures`, which also caches the 
 figures required slides. These figures can be updated by running `make paperfig`.

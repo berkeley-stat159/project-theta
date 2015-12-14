@@ -43,7 +43,7 @@ for i in range(2,3):
         direct='ds005/sub0'+str(i).zfill(2)+'/BOLD/task001_run00'+`j`+'/'
         boldname = direct+'bold.nii.gz'
         img=nib.load(boldname)
-        data=img.get_data()
+        data=img.get_data().astype(float)
         data=smooth_spatial(data)
         run = j
         behav_cond = 'ds005/sub0'+str(i).zfill(2)+'/behav/task001_run00'+`j`+'/behavdata.txt'

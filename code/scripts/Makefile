@@ -4,10 +4,9 @@ histograms:
 	python find_mask_threshold.py
 
 diagnostics:
-	python graph_lindiag_script.py
 	python findoutlier.py
 	python graphoutlier.py
-
+	python graph_lindiag_script.py
 logistic:
 	python logistic.py
 
