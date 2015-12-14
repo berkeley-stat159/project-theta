@@ -1,6 +1,30 @@
-##Scripts
+## Analysis with Scripts 
 
 These are the scripts used to run our analyses and build our figures.
+Run the following make commands for running the individual analysis. Note that 
+the order of `mixedeffect` and `heatmap` must follow `logistic` and `glm`. 
+
+- `make histograms`: Generates preliminary histograms of all subjects, all runs
+for all data in order to identify masking thresholds of smoothed non-standardize
+BOLD data
+- `make diagnostics`: Generates diagnostics figures for checking the assumptions
+of the linear model (for subject 2) and plots dvars and framewise displacements of non-standardized ds005 BOLD data. 
+- `make smoothing`: Generates smoothed graphs of BOLD slices for comparison.
+- `make glm`: Performs smoothing, convolution and linear regression after of all
+ subjects using the non-standardized ds005 data. Saves beta and t values. 
+**Warning**: This may take up to 45 minutes.
+- `make glmstandard`: Performs the same procedure as `make glm`, but with the 
+standardized ds005 data (with mni template). **Warning**: This may take several 
+hours.
+- `make logistic`: Performs logistic regression and generates diagnostic figures
+of the behavorial data. 
+- `make heatmap`: Generates figures of the heatmaps for the gain and loss beta values for each subject and for the corresponding t-values
+- `make mixedmodel`: Calculates and saves calculates significant gain and loss
+beta, anova values for the linear mixed effects model. **Warning**: This is most
+time consuming analysis we have. Running on all subjects may take around 1 day.
+Caution when running!
+
+## Individual Script Documentation
 
 - `find_mask_threshold.py` plots the histograms of mean BOLD data, filtered 
 and raw, for every run for every subject in order to help find threshold value
@@ -11,7 +35,7 @@ on dvars and framewise displacement
 - `graph_lindiag_script.py` calculates and plots a qqplot and graph of residual
 vs fitted for a chosen voxel
 
-- `graphoutlier.py` takes the output created by find\_outlier.py and plots the
+- `graphoutlier.py` takes the output created by findoutlier.py and plots the
 outlier based on fd and dvars
 
 - `lme_script.py` calculates the beta, anova values for the linear mixed 

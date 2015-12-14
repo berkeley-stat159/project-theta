@@ -1,6 +1,6 @@
 # Analysis commands
 
-histogram:
+histograms:
 	python find_mask_threshold.py
 
 diagnostics:
@@ -16,6 +16,12 @@ smoothing:
 
 glm:
 	python regression_script.py
+
+glmstandard:
+	python regression_script_standard.py
+
+heatmap:
+	python plot_heatmap.py
 
 mixedmodel:
 	python lme_script.py

@@ -51,7 +51,7 @@ for i in range(1,17):
         parameters = merge_cond(behav_cond, task_cond1, task_cond2, task_cond3, task_cond4)
         neural_prediction = events2neural_extend(parameters,TR, n_vols)
         gain, loss, linear_dr, quad_dr = getRegressor(TR, n_vols, hrf_at_trs, neural_prediction)
-        data, gain, loss, linear_dr, quad_dr = deleteOutliers(data, gain, loss, linear_dr, quad_dr, i, run, dvars_out, fd_out)
+        data, gain, loss, linear_dr, quad_dr = deleteOutliers(data, gain, loss, i, run, dvars_out, fd_out, linear_dr, quad_dr)
         run_count[j-1] = data.shape[3]     ## dummy variable indicating the groups
         data_full = np.concatenate((data_full,data),axis=3)
         gain_full = np.concatenate((gain_full,gain),axis=0)
