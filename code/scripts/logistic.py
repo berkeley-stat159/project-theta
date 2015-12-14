@@ -67,10 +67,10 @@ for i in np.arange(1, nsub+1):
     Min_thrs = np.append(Min_thrs, getMin_thrs(confusion))
     AUC_smr = np.append(AUC_smr, AUC)
 
-np.savetxt(pathtofolder + 'ds005/models/lambda.txt', beh_lambda)
-np.savetxt(pathtofolder + 'ds005/models/reg_score.txt', beh_score)
-np.savetxt(pathtofolder + 'ds005/models/cross_val_score.txt', val_score)
-np.savetxt(pathtofolder + 'ds005/models/Min_thrs.txt', Min_thrs.reshape(16,3))
-np.savetxt(pathtofolder + 'ds005/models/AUC_smr.txt', AUC_smr)
-fig.savefig(pathtofolder + 'ds005/models/roc_curve')
+np.savetxt('../../results/texts/lambda.txt', beh_lambda)
+np.savetxt('../../results/texts/reg_score.txt', beh_score)
+np.savetxt('../../results/texts/cross_val_score.txt', val_score)
+np.savetxt('../../results/texts/Min_thrs.txt', Min_thrs.reshape(16,3))
+np.savetxt('../../results/texts/AUC_smr.txt', AUC_smr)
+fig.savefig('../../results/figures/roc_curve')
 

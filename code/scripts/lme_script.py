@@ -22,8 +22,8 @@ hrf_at_trs = hrf(tr_times)
 
 pathtofolder = '../../data/'
 
-dvars_out = json.load(open(pathtofolder + "dvarsOutliers.txt"))
-fd_out = json.load(open(pathtofolder + "fdOutliers.txt"))
+dvars_out = json.load(open("../../results/texts/dvarsOutliers.txt"))
+fd_out = json.load(open("../../results/texts/fdOutliers.txt"))
 
 sig_gain_prop = np.empty(16)
 sig_loss_prop = np.empty(16)
@@ -66,15 +66,15 @@ for i in range(1,17):
     beta = calcBetaLme(data_full, gain_full, loss_full, linear_full, quad_full, run_group, thrshd)
     sig_level = 0.05
     sig_gain_prop[i-1], sig_loss_prop[i-1] = calcSigProp(beta, sig_level)
-    write=pathtofolder + 'ds005/sub0'+str(i).zfill(2)+'/model/model001/onsets/sub0'+str(i).zfill(2)+'_lme_beta.txt'
+    write='../../results/texts/sub0'+str(i).zfill(2)+'_lme_beta.txt'
     np.savetxt(write, beta)
     anov_test = calcAnov(data_full, run_group, thrshd)
     anov_prop[i-1] = anovStat(anov_test)
 
-write=pathtofolder + 'ds005/models/lme_sig_gain_prop.txt'
+write='../../results/texts/lme_sig_gain_prop.txt'
 np.savetxt(write,  sig_gain_prop)
-write=pathtofolder + 'ds005/models/lme_sig_loss_prop.txt'
+write='../../results/texts/lme_sig_loss_prop.txt'
 np.savetxt(write,  sig_loss_prop)
-write=pathtofolder + 'ds005/models/anova_prop.txt'
+write='../../results/texts/anova_prop.txt'
 np.savetxt(write,  anov_prop)
 

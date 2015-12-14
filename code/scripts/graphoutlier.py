@@ -8,7 +8,7 @@ import sys
 import json
 # Paths
 pathtodata = '../../data/'
-pathtofig = '../../paper/figures/'
+pathtofig = '../../results/figures/'
 pathtofunction = '../utils/functions'
 pathtographing = '../utils/graphing'
 # Append fuction path
@@ -19,12 +19,13 @@ from basic_util import loadnib_dict, loadtxt_dict
 # Append graphing path
 sys.path.append(pathtographing)
 # Import function
+
 from graphoutlier_functions import plot_dvars, plot_fd, plot_meanSig
 
 
 # load outlier files
-dvars_out = json.load(open(pathtodata+"ds005/dvarsOutliers.txt"))
-fd_out = json.load(open(pathtodata+"ds005/fdOutliers.txt"))
+dvars_out = json.load(open("../../results/texts/dvarsOutliers.txt"))
+fd_out = json.load(open("../../results/texts/fdOutliers.txt"))
 
 # need to create two loops, one for 1-9 and one for 10-16
 # because of folder naming difference.
