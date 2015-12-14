@@ -1,17 +1,23 @@
-# Download/Validate Data
+## Download/Validate Data
 
 The ds005 dataset, filtered ds005 dataset, and mni templates are stored here. 
 THE COMMANDS SHOULD BE DONE IN THIS ORDER to be successfully validated.
 The makefile is written such that:
  
 - `make data` will download all the appropriate ds005 data, *The Neural Basis 
-of Loss Aversion in Decision Making Under Risk*. WARNING: ds005 will be 16.7 GB, 
-so can take a while to download 
+of Loss Aversion in Decision Making Under Risk*. WARNING: The combined size
+will be a total of 16.7 GB, so can take a while to download, please plan 
+accrodingly. 
 - `make unzip` will unzip, remove, and rename certain files
 - `make validate` will run data.py to check the hashes of each downloaded file 
 with a master hashlist included, ensuring all downloaded data is correct  
+
+## Testing
+
 - `make test` will run nosetest on the checking hashes function in data.py
 - `make coverage` will generate a coverage report on validating function
+
+## Overview
 
 The ds005 folder contains subfolders for each subject, the most relevant of 
 which are:
