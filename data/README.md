@@ -28,4 +28,6 @@ isplacement/variance data
 losses, and response of each trial
 - model: filtered, processed data of fMRI scans for each of the subjects three 
 runs, and the onsets files. We thank the NiPy berkeley project for this 
-processed data.  
+processed data.
+
+The templates folder contains the MNI templates  
