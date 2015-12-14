@@ -10,8 +10,9 @@ _**Topic:**_ [The Neural Basis of Loss Aversion in Decision Making Under Risk] (
 [SOME SUMMARY OF PAPER]
 
 ## Instructions
+Note: `make all` can take dozens of hours due to the size and nature of the analyses. We do not recommend running it but instead going to the subdirectories and running separate make commands for whatever results are desired. 
 
-- `make all` will generate everything related to the analyses. It will pull in and validate data inside the data directory, create images saved inside the results directory, move relevant images to the paper/figures subdirectory, and generate the final report report.pdf inside the paper directory. The process can take a very long time as the data is over 16 GB and the analyses take a while as well. To save time one can view the final report without running this command by going to the paper directory and running make all from there since the needed figures are already preloaded there. 
+- `make all` will generate everything related to the analyses. It will pull in and validate data inside the data directory, create images saved inside the results directory, move relevant images to the paper/figures subdirectory, and generate the final report report.pdf inside the paper directory. The process can take a VERY long time as the data is over 16 GB and the analyses take quite a while as well. To save time one can view the final report without running this command by going to the paper directory and running make all from there since the needed figures are already preloaded there. 
 - `make clean` will delete extraneous files created by our scripts
 - `make coverage` will check the coverage of our data, code directories 
 - `make test` will run the tests in our code/utils/tests and code/data/tests directory
