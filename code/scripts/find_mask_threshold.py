@@ -25,7 +25,7 @@ for subject in range(1, 17):
         plot_number += 1
 
 #fig.tight_layout()
-fig.savefig('../results/mean_hists.png')
+fig.savefig('../results/figures/mean_hists.png')
 
 #creates histograms of mean of filtered BOLD data to find threshold for every run in every subject
 plot_number = 1
@@ -40,7 +40,7 @@ for subject in range(1, 17):
         axis.hist(np.ravel(mean_data), bins = 100)
         axis.set_title('Subject ' + str(subject) + ', Run ' + str(run))
         plot_number += 1
-fig.savefig('../results/filtered_mean_hists.png')
+fig.savefig('../results/figures/filtered_mean_hists.png')
 
 
 
