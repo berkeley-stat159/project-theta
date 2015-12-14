@@ -6,8 +6,10 @@ import os
 
 # Path to function
 pathtofunction = '../utils/functions'
+pathtofunction2='../utils/graphing'
 # Append path to sys
 sys.path.append(pathtofunction)
+sys.path.append(pathtofunction2)
 
 from graph_lindiagnostics import qqplot, res_var
 from behavtask_tr import events2neural_extend, merge_cond
@@ -41,7 +43,7 @@ for i in range(2,3):
         direct='ds005/sub0'+str(i).zfill(2)+'/BOLD/task001_run00'+`j`+'/'
         boldname = direct+'bold.nii.gz'
         img=nib.load(boldname)
-        data=img.get_data()
+        data=img.get_data().astype(float)
         data=smooth_spatial(data)
         run = j
         behav_cond = 'ds005/sub0'+str(i).zfill(2)+'/behav/task001_run00'+`j`+'/behavdata.txt'

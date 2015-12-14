@@ -4,10 +4,9 @@ histograms:
 	python find_mask_threshold.py
 
 diagnostics:
-	python graph_lindiag_script.py
 	python findoutlier.py
 	python graphoutlier.py
-
+	python graph_lindiag_script.py
 logistic:
 	python logistic.py
 
@@ -22,6 +21,11 @@ glmstandard:
 
 heatmap:
 	python plot_heatmap.py
+	python plot_heatmap_standard.py
+
+bncorrelates:
+	python cross_subjects_linear_regression.py
+	python neural_behavial_plot.py
 
 mixedmodel:
 	python lme_script.py

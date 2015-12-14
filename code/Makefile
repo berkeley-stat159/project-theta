@@ -14,11 +14,14 @@ coverage:
 	nosetests code/utils/tests -w .. --with-coverage --cover-package=utils/functions
 
 all: 
-	cd scripts && make histogram
+	cd scripts && make histograms
 	cd scripts && make smoothing
-	cd scripts && make glm
-	cd scripts && make logistic
 	cd scripts && make diagnostics
+	cd scripts && make glm
+	cd scripts && make glmstandard
+	cd scripts && make logistic
+	cd scripts && make heatmap
+	cd scripts && make bncorrelates
 	cd scripts && make mixedmodel
 
 paperfig:
