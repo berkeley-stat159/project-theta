@@ -4,6 +4,7 @@ for all the subjects for standard brain data.
 """
 import numpy as np
 import matplotlib.pyplot as plt
+import nibabel as nib
 
 base = nib.load('../../data/templates/mni_standard.nii')
 base = base.get_data()
