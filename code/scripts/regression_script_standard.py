@@ -34,7 +34,7 @@ for i in range(1,17):
     gain_full = np.empty([0,])
     loss_full = np.empty([0,])
     for j in range(1,4):
-        boldname='ds005_mnifunc/sub0'+str(i).zfill(2)+'/model/model001/task001_run00'+`j`+'.feat/filtered_func_data_mni.nii.gz'
+        boldname='ds005/sub0'+str(i).zfill(2)+'/model/model001/task001_run00'+`j`+'.feat/filtered_func_data_mni.nii.gz'
         img=nib.load(boldname)
         data=img.get_data()
         data=smooth_spatial(data)

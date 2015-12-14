@@ -14,7 +14,7 @@ coverage:
 	nosetests code/utils/tests -w .. --with-coverage --cover-package=utils/functions
 
 all: 
-	cd scripts && make histogram
+	cd scripts && make histograms
 	cd scripts && make smoothing
 	cd scripts && make glm
 	cd scripts && make logistic
