@@ -6,6 +6,8 @@ pathtofunction = '../utils/functions'
 sys.path.append(pathtofunction)
 from outlierfunction import outlier
 
+#This script calculates the outliers for subjects runs based on fd and dvars
+
 dvars_out = {}
 fd_out = {}
 

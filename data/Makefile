@@ -20,3 +20,7 @@ unzip:
 
 test:
 	nosetests data/tests -w ..
+
+coverage:
+	nosetests data/tests -w .. --with-coverage --cover-package=data.py
+

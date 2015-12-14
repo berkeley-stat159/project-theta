@@ -13,6 +13,8 @@ from behavtask_tr import events2neural_extend, merge_cond
 from regression_functions import hrf, getRegressor, deleteOutliers
 from lme_functions import calcBetaLme, calcSigProp, calcAnov, anovStat
 
+#this script produces the values and anova for a linear mixed effects model in txt files
+
 n_vols=240
 TR=2
 tr_times = np.arange(0, 30, TR)
