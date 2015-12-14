@@ -2,7 +2,7 @@
 
 \subsection{Models and analysis}
 
-In this section, we present the models we used to find the relationship between behavioral and neural loss aversion cross participants as well as how participants react to different loss and gain levels. For behavioral data, we fit the logistic regression models for each subject and use the coefficients of loss and gain to calculate the behavioral loss aversion levels. For neural data, we fit both linear multiple regression models and mixed-effects models in order to collapse three runs for each subject into one model. We analysis the fMRI data use both models and compare the results we obtained. Neural loss aversion levels are calculated using the coefficients of loss and gain. 
+In this section, we present the models we used to find the relationship between behavioral and neural loss aversion cross participants as well as how participants react to different loss and gain levels. For behavioral data, we fit the logistic regression models for each subject and use the coefficients of loss and gain to calculate the behavioral loss aversion levels. For neural data, we fit both linear multiple regression models and mixed-effects models in order to collapse three runs for each subject into one model. We analyze the fMRI data using both models and compare the results we obtained. Neural loss aversion levels are calculated using the coefficients of loss and gain, and are done for both the raw and filtered datasets. However we do not run a mixed effects model on the filtered dataset due to size constraints.   
 %% Moreover, we may use the robust regression to reduce the influence of outliers.
 %% At last, we find out find the correlation between the behavioral and neural loss aversion cross participants using the loss aversion data obtained from the aforementioned models.
 
@@ -63,7 +63,7 @@ The fact that we have 3 runs of data for each participants leads us to consider 
 Y_{i, k} = \beta_{i, 0} + \beta_{i,1} *X_{ldrift} + \beta_{i, 2} * X_{qdrift} +  \beta_{i, loss} *X_{loss} + \beta_{i, gain} * X_{gain}  + \gamma _{i, k} + \epsilon_{i, k}, \quad k =1, 2, 3
 \end{equation}
 
-Then we calculate the neural loss aversion level and plot heat maps same as the about section for multiple linear regressions and compare the results of two models.
+Then we calculate the neural loss aversion level and plot heat maps in the same way as the about section for multiple linear regressions and compare the results of two models. 
 
 \subsubsection{Whole brain analysis of correlation between 
 neural activity and behavioral response across participants}

@@ -22,13 +22,12 @@ The choices are recorded by denoting reponse numbers 1, 2, 3, and 4,
 respectively. Furthermore, the response time for each gambling decision was 
 recorded in seconds. 
 \subsection{BOLD Data}
-Blood-oxygen-level dependent (BOLD) imaging data were collected from each 
-subject as he/she performed the gamble tasks. 240 time scans were done on each 
-run with a time between each scan of 2 seconds. So total scanning time is 480 
-seconds. Each scan consists of a snapshot consisting of a64 by 64 by 34 image 
-matrix. 
-
-There are also 4 model conditions, with events corresponding to 
+\subsubsection{RAW Data}
+Raw Blood-oxygen-level dependent (BOLD) imaging data were collected from each
+subject as he/she performed the gamble tasks. 240 time scans were done on each
+run with a time between each scan of 2 seconds. So total scanning time is 480
+seconds. Each scan consists of a snapshot consisting of a 64 by 64 by 34 image
+matrix.
 \begin{enumerate}
   \item Task
   \item Parametric Gain
@@ -36,9 +35,25 @@ There are also 4 model conditions, with events corresponding to
   \item Distance from Indifference
 \end{enumerate}
 
+\subsubsection{Standardized Data}
+We also used the provided filtered, preprocessed BOLD data. Again, 240 time scans 
+were done on each run with a time between each scan of 2 seconds. So total scanning 
+time is 480 seconds. Each scan consists of a 91 x 109 x 91 snapshot image
+matrix. Besides the preprocessing, this data also has the advantage of each 
+voxel being mapped to a standard MNI template. There are also 4 model 
+conditions, with events corresponding to 
+\begin{enumerate}
+  \item Task
+  \item Parametric Gain
+  \item Parametric Loss
+  \item Distance from Indifference
+\end{enumerate}
+We refer to this provided dataset as filtered or standardized to differentiate from the raw
+BOLD dataset of which we preprocess and also run analyses on.
+
 \subsection{Processing}
 Before we run our analyses and fit betas to our data, we first take a few 
-steps to clean the BOLD datasets. We graph the dvars (RMS of the signal 
+steps to clean the raw BOLD datasets. We graph the dvars (RMS of the signal 
 derivatives) and the framewise displacement, and we use that in conjunction 
 with the mean signal of the BOLD data to determine outliers to remove. The 
 BOLD data is smoothed spatially in order to make clearer the signal in 

@@ -40,7 +40,7 @@ def qqplot(residuals, dist_type = 'norm', subplot_num = None, saveit = False):
     stats.probplot(residuals, dist = dist_type, plot = plt)
     plt.title(dist_type + "QQ Plot" + plotnum)
     if saveit:
-        plt.savefig('../../paper/figures/qqplot.png')
+        plt.savefig('../paper/figures/qqplot.png')
         plt.close()
         savecond = 'saved'
     else: 
@@ -83,7 +83,7 @@ def res_var(var_val, residuals, name, subplot_num = None, saveit = False):
     plt.xlabel(name +" Values")
     plt.ylabel("Residual Values")
     if saveit:
-        plt.savefig('../../paper/figures/res_' + name +'.png')
+        plt.savefig('../paper/figures/res_' + name +'.png')
         plt.close()
         savecond = 'saved'
     else:

@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 #Plots the heatmaps for the gain betas and loss betas for each subject, as well as the corresponding t-values
 
 for i in range(1,17):    
-    beta = np.loadtxt('../../results/sub0'+str(i).zfill(2)+'_beta.txt')
+    beta = np.loadtxt('../../results/texts/sub0'+str(i).zfill(2)+'_beta.txt')
     beta1 = np.reshape(beta.T,(64,64,34,-1))
     beta_gain = beta1[..., 0]
     beta_loss = beta1[..., 1]
@@ -28,7 +28,7 @@ for i in range(1,17):
         axis.get_xaxis().set_visible(False)
         axis.get_yaxis().set_visible(False)
         axis.set_title('Slice ' + str(plot_number))
-    plt.savefig('beta_gain_sub'+str(i)+'.png', dpi=40) 
+    plt.savefig('../../results/figures/beta_gain_sub'+str(i)+'.png', dpi=40) 
     plt.close()
     
     fig = plt.figure(figsize = (54.2, 28.4))
@@ -39,12 +39,12 @@ for i in range(1,17):
         axis.get_xaxis().set_visible(False)
         axis.get_yaxis().set_visible(False)
         axis.set_title('Slice ' + str(plot_number))
-    plt.savefig('beta_loss_sub'+str(i)+'.png', dpi=40) 
+    plt.savefig('../../results/figures/beta_loss_sub'+str(i)+'.png', dpi=40) 
     plt.close()
 
 
 for i in range(1,17):
-    t_val = np.loadtxt('../../results/sub0'+str(i).zfill(2)+'_tvals.txt')
+    t_val = np.loadtxt('../../results/texts/sub0'+str(i).zfill(2)+'_tvals.txt')
     #reshape t
     t_val1 = np.reshape(t_val.T,(64,64,34,-1))
     t_gain = t_val1[..., 0]
@@ -66,7 +66,7 @@ for i in range(1,17):
         axis.get_xaxis().set_visible(False)
         axis.get_yaxis().set_visible(False)
         axis.set_title('Slice ' + str(plot_number))
-    plt.savefig('t_gain_sub'+str(i)+'.png', dpi=40) 
+    plt.savefig('../../results/figures/t_gain_sub'+str(i)+'.png', dpi=40) 
     plt.close()
     
     fig = plt.figure(figsize = (54.2, 28.4))
@@ -77,7 +77,7 @@ for i in range(1,17):
         axis.get_xaxis().set_visible(False)
         axis.get_yaxis().set_visible(False)
         axis.set_title('Slice ' + str(plot_number))
-    plt.savefig('t_loss_sub'+str(i)+'.png', dpi=40) 
+    plt.savefig('../../results/figures/t_loss_sub'+str(i)+'.png', dpi=40) 
     plt.close()
 
 
