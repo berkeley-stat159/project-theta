@@ -16,10 +16,10 @@ coverage:
 all: 
 	cd scripts && make histograms
 	cd scripts && make smoothing
+	cd scripts && make diagnostics
 	cd scripts && make glm
 	cd scripts && make glmstandard
 	cd scripts && make logistic
-	cd scripts && make diagnostics
 	cd scripts && make heatmap
 	cd scripts && make bncorrelates
 	cd scripts && make mixedmodel
