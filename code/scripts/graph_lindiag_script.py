@@ -6,8 +6,10 @@ import os
 
 # Path to function
 pathtofunction = '../utils/functions'
+pathtofunction2='../utils/graphing'
 # Append path to sys
 sys.path.append(pathtofunction)
+sys.path.append(pathtofunction2)
 
 from graph_lindiagnostics import qqplot, res_var
 from behavtask_tr import events2neural_extend, merge_cond
