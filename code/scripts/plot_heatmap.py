@@ -2,6 +2,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+#Plots the heatmaps for the gain betas and loss betas for each subject, as well as the corresponding t-values
+
 for i in range(1,17):    
     beta = np.loadtxt('../../results/sub0'+str(i).zfill(2)+'_beta.txt')
     beta1 = np.reshape(beta.T,(64,64,34,-1))
