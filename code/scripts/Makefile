@@ -22,6 +22,7 @@ glmstandard:
 
 heatmap:
 	python plot_heatmap.py
+	python plot_heatmap_standard.py
 
 mixedmodel:
 	python lme_script.py
