@@ -1,8 +1,7 @@
 .PHONY: all clean coverage test verbose
 
 resultfolder:
-	mkdir -p results
-
+	mkdir -p results/texts results/figures
 
 all:
 	cd data && make data
