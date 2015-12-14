@@ -24,5 +24,9 @@ heatmap:
 	python plot_heatmap.py
 	python plot_heatmap_standard.py
 
+bncorrelates:
+	python cross_subjects_linear_regression.py
+	python neural_behavial_plot.py
+
 mixedmodel:
 	python lme_script.py
