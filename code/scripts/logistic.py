@@ -4,6 +4,11 @@ from sklearn.cross_validation import cross_val_score
 from sklearn.linear_model import LogisticRegression
 import sys
 
+#This script calculates and saves in text files the lambdas and diagnostics 
+#such as ROC and AUC scores for logistic regressions on each subjects 
+#behavioral data
+
+
 # Path to function
 pathtofunction = '../utils/functions'
 # Append path to sys

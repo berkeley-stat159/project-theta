@@ -6,6 +6,8 @@ pathtofunction = '../utils/functions'
 sys.path.append(pathtofunction)
 from outlierfunction import outlier
 
+#This script calculates the outliers for subjects runs based on fd and dvars
+
 dvars_out = {}
 fd_out = {}
 
@@ -49,6 +51,6 @@ for i in range(10,17):
         fd_outlier = outlier(fd_data, 0.5)
         fd_out['sub'+`i`+'run'+`j`] = fd_outlier[0].tolist()
 
-json.dump(dvars_out, open("../../data/ds005/dvarsOutliers.txt",'w'))
-json.dump(fd_out, open("../../data/ds005/fdOutliers.txt",'w'))
+json.dump(dvars_out, open("../../results/dvarsOutliers.txt",'w'))
+json.dump(fd_out, open("../../results/fdOutliers.txt",'w'))
 
