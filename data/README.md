@@ -6,8 +6,8 @@ The makefile is written such that:
  
 - `make data` will download all the appropriate ds005 data, *The Neural Basis 
 of Loss Aversion in Decision Making Under Risk*. WARNING: The combined size
-will be a total of 16.7 GB, so can take a while to download, please plan 
-accrodingly. 
+will be a total of 16.7 GB, so can take ~30 minutes to download, please plan 
+accordingly. 
 - `make unzip` will unzip, remove, and rename certain files
 - `make validate` will run data.py to check the hashes of each downloaded file 
 with a master hashlist included, ensuring all downloaded data is correct  
