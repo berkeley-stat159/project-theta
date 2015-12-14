@@ -2,8 +2,8 @@
 
 These are the scripts used to run our analyses and build our figures.
 Run the following make commands for running the individual analysis. Note that 
-`logistic`, `glm`, and `glmstandard` must come *before* `mixedeffect`, `heatmap`,
-and `bncorrelates`.
+`diagnostics` must come *before* `glm` and that `logistic`, `glm`, and 
+`glmstandard` must come *before* `mixedeffect`, `heatmap`,and `bncorrelates`.
 
 - `make histograms`: Generates preliminary histograms of all subjects, all runs
 for all data in order to identify masking thresholds of smoothed non-standardize
@@ -14,7 +14,7 @@ of non-standardized ds005 BOLD data.
 - `make smoothing`: Generates smoothed graphs of BOLD slices for comparison.
 - `make glm`: Performs smoothing, convolution and linear regression after of all
  subjects using the non-standardized ds005 data. Saves beta and t values. 
-**Warning**: This may take up to 45 minutes.
+**Warning**: This may take up to 45 minutes.*Run after `make diagnostics`*
 - `make glmstandard`: Performs the same procedure as `make glm`, but with the 
 standardized ds005 data (with mni template). **Warning**: This may take several 
 hours.
