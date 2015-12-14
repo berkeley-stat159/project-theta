@@ -80,7 +80,7 @@ for i in range(1,17):
     for plot_number in range(1, 31):
         axis = fig.add_subplot(5, 6, plot_number)
         plt.imshow(base[:, :, plot_number], cmap = plt.get_cmap('gray'), alpha = 0.3)
-        img=axis.imshow(t_gain[:, :, plot_number], cmap=plt.get_cmap('rainbow'), alpha=0.5,interpolation='nearest',vmin=t_gainmin, vmax=t_gainmax)
+        img=axis.imshow(t_gain[:, :, plot_number], cmap=plt.get_cmap('rainbow'), alpha=0.5,interpolation='nearest',vmin=t1min, vmax=t1max)
         plt.colorbar(img, ax=axis)
         axis.get_xaxis().set_visible(False)
         axis.get_yaxis().set_visible(False)
@@ -92,7 +92,7 @@ for i in range(1,17):
     for plot_number in range(1, 31):
         axis = fig.add_subplot(5, 6, plot_number)
         plt.imshow(base[:, :, plot_number], cmap = plt.get_cmap('gray'), alpha = 0.3)
-        img=axis.imshow(t_loss[:, :, plot_number], cmap=plt.get_cmap('rainbow'), alpha=0.5,interpolation='nearest',vmin=tlossmin, vmax=tlossmax)
+        img=axis.imshow(t_loss[:, :, plot_number], cmap=plt.get_cmap('rainbow'), alpha=0.5,interpolation='nearest',vmin=t2min, vmax=t2max)
         plt.colorbar(img, ax=axis)
         axis.get_xaxis().set_visible(False)
         axis.get_yaxis().set_visible(False)
