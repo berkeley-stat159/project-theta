@@ -34,7 +34,7 @@ for i in range(1,17):
     gain_full = np.empty([0,])
     loss_full = np.empty([0,])
     for j in range(1,4):
-        boldname='ds005_mnifunc/sub0'+str(i).zfill(2)+'/model/model001/task001_run00'+`j`+'.feat/filtered_func_data_mni.nii.gz'
+        boldname='ds005/sub0'+str(i).zfill(2)+'/model/model001/task001_run00'+`j`+'.feat/filtered_func_data_mni.nii.gz'
         img=nib.load(boldname)
         data=img.get_data()
         data=smooth_spatial(data)
@@ -54,7 +54,7 @@ for i in range(1,17):
     # mea=calcMRSS(data_full, gain_full, loss_full, None, None, threshold)
     X, Y, beta=calcBeta(data_full, gain_full, loss_full, None, None, threshold)
     # calculate t values
-    t_val=np.zeros((2,139264))
+    t_val=np.zeros((2,902629))
     for k in range(Y.shape[1]):
         t_val[:,k] = significant(X,Y[:,k], beta[:,k])
     # file names for beta and t
