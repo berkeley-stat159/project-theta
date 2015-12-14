@@ -47,10 +47,7 @@ The experiment conducted in the paper itself involved giving 16 subjects a total
 We determine the beta coefficients for each voxel in the subject's brain based on a linear regression on the BOLD signal data. We use these coefficients as evidence for increasing activation in certain voxels in the brain when the subject is making a decision to accept or reject, and so in this way we have a proxy for which regions of the brain are involved with loss-aversion decision-making. We also determine the p-values to validate these results.
 
 \par 
-We also run a logistic regression to determine each subject's willingness to accept or reject based on the values of potential loss and gain. This is the measure of behavioral loss aversion, and in the end we correlate this with ou neural loss aversion, making it clear that increasing gains correspond to increasing activity in certain parts of the brain.  
-
-\par 
-We also aim to investigate briefly if there are any statistically significant variations between the male and female subjects in addition to showing the brain activations through various graphs.
+We also run a logistic regression to determine each subject's willingness to accept or reject based on the values of potential loss and gain. This is the measure of behavioral loss aversion, and in the end we correlate this with our neural loss aversion, making it clear that increasing gains correspond to increasing activity in certain parts of the brain.  
 
 \section{Data}
 \subsection{Overview}
@@ -58,13 +55,13 @@ The study used 16 right-handed, healthy, English-speaking participants
 recruited through ads posted on UCLA. Out of 16 subjects, 9 were female and 
 the mean age was 22 $ \pm $ 2.9 years. 
 
-\subsection{Behavorial Data}
+\subsection{Behavioral Data}
 The behavioral data consists of each subject undergoing 3 trial runs for the 
 ``gamble'' task, in which each subject is presented with a combination of 
 potential monetary gains and losses given a 50/50 chance of to win/loss. Each 
-trial run consists of 86 different combinations of rewards/penalities spread 
-out accross 474 seconds. Intervals between each onset of task range from 4 to 
-8 seconds. Subjects were given the 4 choices in reponse to each gambling 
+trial run consists of 86 different combinations of rewards/penalties spread 
+out across 474 seconds. Intervals between each onset of task range from 4 to 
+8 seconds. Subjects were given the 4 choices in response to each gambling 
 proposal:
 \begin{enumerate}
   \item Strong Accept
@@ -72,7 +69,7 @@ proposal:
   \item Weak Reject
   \item Strong Reject
 \end{enumerate}
-The choices are recorded by denoting reponse numbers 1, 2, 3, and 4, 
+The choices are recorded by denoting response numbers 1, 2, 3, and 4, 
 respectively. Furthermore, the response time for each gambling decision was 
 recorded in seconds. 
 \subsection{BOLD Data}
@@ -110,24 +107,12 @@ manually determine a good threshold for a mask we use to isolate more active
 voxels in the brain. This helps us find beta coefficients for more relevant 
 voxels. We also model and remove the linear and quadratic drift that may be 
 present in the runs. 
-We use subject 2 run 2 to show an example of our outlier results.
+We use subject 2 run 2 to show an example of our outliers results.
 
 \begin{figure}[H]
     \centering
-        \includegraphics[scale=0.4]{figures/dvars_sub2run2.png}
-    \caption{DVARS for subject 2 run 2}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-        \includegraphics[scale=0.4]{figures/fd_sub2run2.png}
-    \caption{Framewise Displacement for subject 2 run 2}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-        \includegraphics[scale=0.4]{figures/mean_sub2run2.png}
-    \caption{Data mean for subject 2 run 2}
+        \includegraphics[scale=0.55]{figures/processing.png}
+    \caption{DVARS, Framewise Displacement and Data mean for subject 2 run 2}
 \end{figure}
 
 \section{Models and methods}
@@ -165,14 +150,30 @@ We use $\lambda$ as the metric for the degree of behavioral loss aversion for ea
 
 \subsubsection{Linear Regression on fMRI data}
 
+\textbf{Raw Data Regression}
+
 For each voxel $i$, we fit a multiple linear model:
 
 \begin{equation}
-Y_{i} = \beta_{i, 0} + \beta_{i,1} *X_{ldrift} + \beta_{i, 2} * X_{qdrift} + \beta_{i, loss} *X_{loss} + \beta_{i, gain} * X_{gain}  + 
-\epsilon_i
+Y_{i} = \beta_{i, 0} + \beta_{i, gain} * X_{gain}  + \beta_{i, loss} *X_{loss} 
++ \beta_{i,ldrift} *X_{ldrift} + \beta_{i, qdrift} * X_{qdrift} 
++ \epsilon_i
 \end{equation}
 
-where $Y_{i}$ is the BOLD data of voxel $i$,  $X_{ldrift}$ and $X_{qdrift}$ are linear and quadratic drift terms. For each voxel, we calculate the 
+where $Y_{i}$ is the BOLD data of voxel $i$,  $X_{ldrift}$ and $X_{qdrift}$ are linear and quadratic drift terms. \\
+
+\textbf{Pre-processed Data Regression}
+
+For each voxel $i$, we fit a multiple linear model:
+
+\begin{equation}
+Y_{i} = \beta_{i, 0} + \beta_{i, gain} * X_{gain}  +  \beta_{i, loss} *X_{loss} + \epsilon_i
+\end{equation}
+
+where $Y_{i}$ is the BOLD data of voxel $i$.
+For the pre-processed data, we no longer need to include the drift terms. The drifts are taken care of in the pre-process steps.
+
+For each voxel, we calculate the 
 neural loss aversion $\eta_i$:
 
 \begin{equation}
@@ -180,15 +181,15 @@ neural loss aversion $\eta_i$:
 \end{equation}
 
 Using the voxelwise neural loss aversion, we do a region-specific analysis on 
-BOLD data for each participant. That is, we plot a heat map of $\eta_i$ and  
-$\beta_{i, loss}$, $ \beta_{i, gain}$ for each participant to find out the 
+BOLD data for each participant. That is, we calculate and plot heat maps of the t values
+for $\beta_{loss}$ and $\beta_{gain}$ for each participant to find out the 
 regions with significant activation and regions which show a significant 
 positive or negative correlation with increasing loss or gain levels.
 
 \subsubsection{Mixed-effects model on fMRI data}
 
 The fact that we have 3 runs of data for each participants leads us to consider using mixed effects model to analysis the data set. The mixed effect model adds a random effects term, which is associated with individual experimental units drawn at random from a population. In this case, it measures the difference between the average brain activation in run i and the 
-average brain activation in all three runs. For each voxel $i$, we fit the following mixed-effects models, note that here we only include the intercept term for random effects. 
+average brain activation in all three runs. For each voxel $i$, we fit the following mixed-effects models, note that here we only include the intercept term for random effects (the following model is for the raw data, for the filtered data, we subtract the drift terms).
 
 \begin{equation}
 Y_{i, k} = \beta_{i, 0} + \beta_{i,1} *X_{ldrift} + \beta_{i, 2} * X_{qdrift} +  \beta_{i, loss} *X_{loss} + \beta_{i, gain} * X_{gain}  + \gamma _{i, k} + \epsilon_{i, k}, \quad k =1, 2, 3
@@ -216,49 +217,59 @@ where the sample size is the number of participants(16).
 
 \subsubsection{Cross-validation}
 
-We fit linear models for each voxel for each participant. For each linear
-model, we do a k-fold cross-validation. Since the sample size for each linear 
-regression model range from 80-90, we choose to use 10 fold cross-validation,
-which means the original sample is randomly pertitioned into 10 equal sized 
-subsamples. \\
-In the behavioral analysis using Logistic regression, since the responce 
+To estimate how accurately a predictive model will, we do a k-fold cross-validation for each linear
+model. We choose to use 10 fold cross-validation for both behavioral and neural model,
+which means the original sample is randomly partitioned into 10 equal sized 
+subsamples. 
+\par
+In the behavioral analysis using Logistic regression, since the response 
 variables are binary, we calculate the misclassification error rate to 
 summarize the fit. In the neural linear regression model using BOLD data, we 
 use the mean squared error to summarize the errors.
 
 \subsubsection{ROC curve}
 
-\subsubsection{Inferences on data}
+ROC curve and AUC are mostly used for model selection of a binary classifier. In the behavioral analysis, we use logistic regression as the binary classifier for the response of reject and accept. To check the performance of the logistic classifier as its discrimination varied, we plot the ROC (receiver operating characteristic) curve and calculate the corresponding AUC (areas under the curve). In the model analysis, we prefer models with bigger AUC values.
 
-After fitting regression models on our BOLD and behavioral data, we would try 
-assessing and validating our models. In order to do this, we would calculate 
-for the residual sum of squares for our model. We have to do three tests for 
-the model. The first one is that we calculate the t-statistics and p-value for 
-our beta coefficients to check whether our beta parameters are statistically 
-significant at a significance level of 5\%. The second one is that we calculate
-the residuals of this linear model and check whether it follows a normal 
-distribution. The third one is that we calculate the R-Squared value and the 
-adjusted R-squared value to see whether the values are good for the linear 
-regression model.\\
+\subsubsection{Inferences on regression models}
 
+After fitting regression models on our BOLD and behavioral data, we assess 
+and validate our models. We calculate the following statistics:
 \begin{itemize}
-\item{QQ plot}
-\item{Residual - fitted plot}
+\item \emph{t-statistics and p-value} Calculate the t-statistics and p-value for 
+our beta coefficients to check whether our beta parameters are statistically 
+significant.
+\item \emph{R-Squared value and the adjusted R-squared value} Calculate R-Squared value and the adjusted R-squared value to see how close the data are to the fitted regression line, that is the proportion of variability of the response data explained by the model.
 \end{itemize}
 
+\subsubsection{Normality assumption on linear models}
+
+Since the performance of the test statistic of linear models are largely depend on the normality assumption on the independent variables, the check of normality assumption is indispensable. We choose the following methods for normality assumption:
+
+\begin{itemize}
+\item{QQ plot} The quantile-quantile plot (QQ plot) is the most commonly-used visualisation method to check the validity of a distribution assumption. The basic idea is to compute the empirical quantile the and compare it with the theoretically expected value of a normal distribution. If the datas follow a normal distribution, then the points on the Q-Q plot would fall on a straight line. 
+\item{Residuals vs. fits plot} A residuals vs. fits plot is another most frequently created plot. Under the normality assumption, the residuals should be independent and scatted around.
+\end{itemize}
+
+\subsubsection{ANOVA test}
+
+In our dataset, each participant repeated the test for three times, in other words there are datas of 3 runs for each subject. Before collapsing the three runs into one model, we need to check the assumption whether they are indiscriminate.  To do this, we perform an ANOVA test on each subject to check the difference of means across runs. The significance of an AVOVA test may show that there are difference across runs, thus we may seek other methods to eliminate the influence due to the variance across runs.
 
 \subsubsection{Multiple Test correction}
 
+In statistical inference for fMRI data, usually we have more than tens of thousands of hypothesis tests, thus massive multiple correction problems. Using thresholds without correction could be problematic. Common multiple correction methods (such as Bonferroni) requires adjusting the p-values. However, imposing high statistical thresholds that may mask voxels that do have real effects. To avoid this loss, we use uncorrected threshold and choose the threshold on a case-by-case basis.
+
+
 \subsubsection{Cluster analysis}
 
-\subsubsection{ANOVA test}
+We use K-means clustering to detect the homogeneity of regions. We concatenate the betas obtained from linear models and the coordinate of voxels as the clustering vector (dimension = 16 + 3 = 19). Then do cluster analysis for beta gains and beta loss separately to detect regions activated by increasing beta losses and beta gains.
 
 
 \section{Results}
 
 \subsection{Behavioral analysis}
 
-We performed statistical analysis using both Python and R (The original paper use R package to fit the Logistic models). We use the library \emph{scikit-learn} in Python and the \emph{glm} function in \emph{stats} in R to fit the models. Models from two library yields the same results. We shows the plot of the behavioral loss aversion $\lambda$ for every subject (median=1.94, mean=2.18, min=0.99, max=0.75). This result is consistent with that of the paper, which indicate that participants are indifferent to gambles whose gain are appoxiamtely twice as the loss. 
+We performed statistical analysis using both Python and R (The original paper use R package to fit the Logistic models). We use the library \emph{scikit-learn} in Python and the \emph{glm} function in \emph{stats} in R to fit the models. Models from two library yields the same results. We shows the plot of the behavioral loss aversion $\lambda$ for every subject (median=1.94, mean=2.18, min=0.99, max=0.75). This result is consistent with that of the paper, which indicate that participants are indifferent to gambles whose gain are approximately twice as the loss. 
 
 
 \begin{wrapfigure}{r}{0.55\textwidth}
@@ -332,7 +343,7 @@ the significant t values for the loss coefficients are mostly negative.
     \caption{t values of the loss coefficients for subject 2}
 \end{figure}
 
-We can see that signigicant areas for the gain coefficients and those of the 
+We can see that significant areas for the gain coefficients and those of the 
 loss coefficients are mostly the same. This suggests that opposite of what 
 most people believes that increasing potential losses should affect the areas 
 of the brain that mediate negative emotions in decision-making, potential 
@@ -360,6 +371,8 @@ considered.
 
 \subsubsection{Cluster Analysis for betas from linear regression}
 
+We applied k-means clustering and minibatch k-means clustering on the betas obtained from the neural linear regression models. We choose 20 as our number of clusters. Following are the slices of our clustering results. We will use the clustering maps to detect underlying significant regions in the later part in the whole brain analysis.
+
 \begin{figure}[H]
     \centering
         \includegraphics[scale=0.4]{figures/Regression2/beta_gain_cluster.png}
@@ -371,8 +384,6 @@ considered.
         \includegraphics[scale=0.4]{figures/Regression2/beta_loss_cluster.png}
     \caption{Clusters for beta losses in linear regression across subjects (\#clusters = 20)}
 \end{figure}
-
-
 
 
 \subsection{Mixed-effects model on fMRI data}
@@ -389,6 +400,8 @@ The mixed-effects model for each subject yielded a a median of 9.4\% (min=6.4\%,
 max=21.5\%) and 8.3\% (min=4.6\%, max=15.4\%) of proportion of significant 
 coefficient for gain and loss separately. 
 
+The run time issue (takes 26 hours for raw data on a 1.3GHz Intel Core i5 Macintosh Machine) makes it rather hard to fit the standard brain data (the size is 7 times of the raw data) to a mixed-effects model on our computer. We performed the mixed-effects model on the raw data only. Due to the limited space, we did not presented the heat map in the paper. Figures are under the figure folder.
+
 \newpage
 
 \subsection{Whole brain analysis of correlation between neural activity and behavioral response across participants}
@@ -402,12 +415,12 @@ coefficient for gain and loss separately.
 The figure on the right shows the correspondence between neural and behavioral loss aversion. Left panel presents statistical maps of the correlation between neural and behavioral loss aversion in whole brain analysis (Significant level = 0.001). We pick 2 slices by Z axis, one slice by Y axis and analyzed 3 regions. Right panel presents scatterplots of behavioral versus neural loss aversion in corresponding clusters. Regression lines and p-values were computed using multiple linear regression. While in the original paper there is no clusters which shows negative significant correlation between the neural loss aversion and behavioral loss aversion, our results shows that there are both significant positive correlation and significant negative correlation. We use the following three clusters to illustrate these.
 
 \begin{itemize}
-\item \emph{Region 1: Voxel coordinates [22, 81, 44]} The corresponding millimeters coordinates is [46, 36, 16], which is very closed to L inferior/middle frontal (-48.5, 24.7, 17.0). In this cluster, the number of voxels significant is 95, the range of x, y and z is (19, 25), (79, 86), (41, 50) seperately.
+\item \emph{Region 1: Voxel coordinates [22, 81, 44]} The corresponding millimeters coordinates is [46, 36, 16], which is very closed to L inferior/middle frontal (-48.5, 24.7, 17.0). In this cluster, the number of voxels significant is 95, the range of x, y and z is (19, 25), (79, 86), (41, 50) separately.
 \end{itemize}
 
 \begin{itemize}
-\item \emph{Region 2: Voxel coordinates: [71, 59, 56]} In this cluster, the number of voxels significant is 151, the mean p-value is 0.000240. For the region, the range of x, y and z is (63, 71), (54, 60), (52, 57) seperately. This cluster showed significant negative correlation between behavioural loss aversion and neural loss aversion.
-\item \emph{Region 3: Voxel coordinates: [46, 44, 68]} In this cluster, the number of voxels significant is 136, the mean p-value is 0.000522. For the region, the range of x, y and z is (33, 57), (40, 45), (61, 69) seperately. This cluster also showed significant negative correlation between behavioural loss aversion and neural loss aversion.
+\item \emph{Region 2: Voxel coordinates: [71, 59, 56]} In this cluster, the number of voxels significant is 151, the mean p-value is 0.000240. For the region, the range of x, y and z is (63, 71), (54, 60), (52, 57) separately. This cluster showed significant negative correlation between behavioral loss aversion and neural loss aversion.
+\item \emph{Region 3: Voxel coordinates: [46, 44, 68]} In this cluster, the number of voxels significant is 136, the mean p-value is 0.000522. For the region, the range of x, y and z is (33, 57), (40, 45), (61, 69) separately. This cluster also showed significant negative correlation between behavioral loss aversion and neural loss aversion.
 
 \end{itemize}
 
@@ -418,13 +431,13 @@ The figure on the right shows the correspondence between neural and behavioral l
 \begin{figure}[H]
     \centering
         \includegraphics[scale=0.1]{figures/Regression3/sig_cor_z_loss.png}
-    \caption{Our results: heatmap of regions with significant correlation}
+    \caption{Our results: heat map of regions with significant correlation}
 \end{figure}
 
 \begin{figure}[H]
     \centering
         \includegraphics[scale=0.5]{figures/Regression3/Orig_sig_cor_z_loss.png}
-    \caption{Original paper: Heatmap of regions with significant correlation}
+    \caption{Original paper: Heat map of regions with significant correlation}
 \end{figure}
 
 \newpage
@@ -445,7 +458,7 @@ The figure on the right shows the correspondence between neural and behavioral l
 
 \newpage
 
-\emph{Figure S3} Regions showing significant correlation between behavioural loss aversion ln($\lambda$) and neural loss aversion (difference between the absolute slopes of neural loss and gain responses) (Significant level = 0.001). There are both significant positive correlation and significant negative correlation. This result is different from the paper, in which no regions showed significant negative correlation.
+\emph{Figure S3} Regions showing significant correlation between behavioral loss aversion ln($\lambda$) and neural loss aversion (difference between the absolute slopes of neural loss and gain responses) (Significant level = 0.001). There are both significant positive correlation and significant negative correlation. This result is different from the paper, in which no regions showed significant negative correlation.
 
 \begin{figure}[H]
     \centering
@@ -480,9 +493,9 @@ specific regions in terms of anatomy to explore the correspondence between neura
 and behavioral loss aversion.
 
 There are two potential ways to deal with this issue. The first one is a 
-top-down appraoch to isolate potential regions of analysis. This method 
+top-down approach to isolate potential regions of analysis. This method 
 requires us to read more paper and related articles to better our anatomical 
-understanding of the specifc brain regions that are more likely to react in our 
+understanding of the specific brain regions that are more likely to react in our 
 given scenario -- loss aversion faced with potential gain and loss combinations.
 
 Another way is a bottom-up approach. In this method, we can fit a regression for 
@@ -522,7 +535,7 @@ our 16 subjects, with the extra information of gender and age. A question to
 potentially address: Is there a significant difference to loss aversion across
 genders?
 
-\par Additionally, it is interesting to see that the behavorial data contains a 
+\par Additionally, it is interesting to see that the behavioral data contains a 
 column for the response time of each gambling task. To further explore how 
 decision are made in gambling task, we can use the response time as one of the 
 logistic regressors. Through step-wise or criterion based model selection 
@@ -533,18 +546,18 @@ regressors that influence loss aversion to most.
 \subsection{Discussion of Challenges}
 
 \par \indent One of the major challenges is trying to make this project as 
-reproducible as possible while following guidlines on documentation, testing 
+reproducible as possible while following guidelines on documentation, testing 
 functions, and attempting to produce the results of the paper using our limited
 understanding of fMRI data. Travis CI bugs with various versions of python, 
 coverage failures, and errors with directory/path locations often hinder the 
-process of smooth workflows. Collaboration between five group members is no 
+process of smooth work-flows. Collaboration between five group members is no 
 doubt difficult as we found it hard to come up with an attainable final goal 
 that is still rewarding. 
-\par Technically, most of us are new to python programming and reseach using 
+\par Technically, most of us are new to python programming and research using 
 git workflows, thus we have only a preliminary understanding of the various 
 python resources available for our use. Additionally, lack of statistical 
 understanding of some aspects of the paper has urged us to do independent 
-research. Yet the disconnent between theory and implementation has been a major 
+research. Yet the disconnect between theory and implementation has been a major 
 obstacle because as we try to put our knowledge into practice, we realize that
 many pre-packaged software used in the original paper are unavailable to us. 
 In addressing this, we have made our best attempt at creating a fMRI analysis 
