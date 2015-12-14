@@ -1,5 +1,9 @@
 .PHONY: all clean coverage test verbose
 
+resultfolder:
+	mkdir -p results
+
+
 all:
 	cd data && make data
 	cd data && make unzip
