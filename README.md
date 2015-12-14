@@ -11,17 +11,17 @@ _**Topic:**_ [The Neural Basis of Loss Aversion in Decision Making Under Risk] (
 
 ## Instructions
 
+- `make all` will generate everything related to the analyses. It will pull in and validate data inside the data directory, create images saved inside the results directory, move relevant images to the paper/figures subdirectory, and generate the final report report.pdf inside the paper directory. The process can take a very long time as the data is over 16 GB and the analyses take a while as well. To save time one can view the final report without running this command by going to the paper directory and running make all from there since the needed figures are already preloaded there. 
 - `make clean` will delete extraneous files created by our scripts
 - `make coverage` will check the coverage of our data, code directories 
 - `make test` will run the tests in our code/utils/tests and code/data/tests directory
 - `make verbose` is the verbose version of 'make test'
 
-To replicate our project one should, in this order, read the READMEs and run the make commands in:
 
-1. the data directory to generate, unzip, and validate the necessary datasets
-2. the code directory to check the tests and coverage
-3. [GENERATE IMAGES/ANALYSIS? need to implement]
-4. the paper directory to generate and clean the final report
+## Directories
 
-
-[NEED TO ADD: instructions for data, scripts/analysis, paper (should be done in that order)]
+- `code` contains the functions and scripts for analysis and graphing
+- `data` holds the relevant datasets that are pulled in and validated either through make commands there or make all here.
+- `paper` contains the final report, report.pdf, once the appropriate make commands are run, either here or in paper. It also has the relevant figures for the paper
+- `requirements.txt` is the a text file listing the required package versions 
+- `tools` contains the material related to travis ci
