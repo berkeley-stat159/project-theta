@@ -1,4 +1,4 @@
-.PHONY: clean test verbose coverage
+.PHONY: clean test verbose coverage all paperfig
 
 clean:
 	find .. -name "*.so" -o -name "*.pyc" -o -name "*.pyx.md5" -o -name "testnib.nii.gz" -o -name "temp.txt" | xargs rm -f
@@ -20,3 +20,5 @@ all:
 	cd scripts && make logistic
 	cd scripts && make diagnostics
 	cd scripts && make mixedmodel
+
+paperfig:
