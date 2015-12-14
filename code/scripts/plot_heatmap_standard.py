@@ -9,8 +9,8 @@ import nibabel as nib
 base = nib.load('../../data/templates/mni_standard.nii')
 base = base.get_data()
 for i in range(1,17):    
-    beta = np.loadtxt('../../results/texts/sub0'+str(i).zfill(2)+'standard_beta.txt')
-    beta1 = np.reshape(beta.T,(64,64,34,-1))
+    beta = np.loadtxt('../../results/texts/sub0'+str(i).zfill(2)+'_standard_beta.txt')
+    beta1 = np.reshape(beta.T,(91,109,91,-1))
     beta_gain = beta1[..., 0]
     beta_loss = beta1[..., 1]
     betagainmax=np.max(beta_gain)
@@ -25,33 +25,33 @@ for i in range(1,17):
     beta_loss[beta_loss==0] = np.nan
     
     fig = plt.figure(figsize = (54.2, 28.4))
-    for plot_number in range(2, 32):
-        axis = fig.add_subplot(5, 6, plot_number-1)
-        plt.imshow(base[:, :, subject], cmap = plt.get_cmap('gray'), alpha = 0.3)
+    for plot_number in range(31, 61):
+        axis = fig.add_subplot(5, 6, plot_number-30)
+        plt.imshow(base[:, :, plot_number], cmap = plt.get_cmap('gray'), alpha = 0.3)
         img=axis.imshow(beta_gain[:, :, plot_number], cmap=plt.get_cmap('rainbow'), alpha=0.5,interpolation='nearest',vmin=betagainmin, vmax=betagainmax)
         plt.colorbar(img, ax=axis)
         axis.get_xaxis().set_visible(False)
         axis.get_yaxis().set_visible(False)
         axis.set_title('Slice ' + str(plot_number))
-    plt.savefig('../../results/figures/beta_gain_sub'+str(i)+'.png', dpi=40) 
+    plt.savefig('../../results/figures/beta_gain_standard_sub'+str(i)+'.png', dpi=40) 
     plt.close()
     
     fig = plt.figure(figsize = (54.2, 28.4))
-    for plot_number in range(2, 32):
-        axis = fig.add_subplot(5, 6, plot_number-1)
-        plt.imshow(base[:, :, subject], cmap = plt.get_cmap('gray'), alpha = 0.3)
+    for plot_number in range(31, 61):
+        axis = fig.add_subplot(5, 6, plot_number-30)
+        plt.imshow(base[:, :, plot_number], cmap = plt.get_cmap('gray'), alpha = 0.3)
         img=axis.imshow(beta_loss[:, :, plot_number], cmap=plt.get_cmap('rainbow'), alpha=0.5,interpolation='nearest',vmin=betalossmin, vmax=betalossmax)
         plt.colorbar(img, ax=axis)
         axis.get_xaxis().set_visible(False)
         axis.get_yaxis().set_visible(False)
         axis.set_title('Slice ' + str(plot_number))
-    plt.savefig('../../results/figures/beta_loss_sub'+str(i)+'.png', dpi=40) 
+    plt.savefig('../../results/figures/beta_loss_standard_sub'+str(i)+'.png', dpi=40) 
     plt.close()
 
 
 
 for i in range(1,17):
-    t_val = np.loadtxt('../../results/texts/sub0'+str(i).zfill(2)+'_tvals.txt')
+    t_val = np.loadtxt('../../results/texts/sub0'+str(i).zfill(2)+'_standard_tvals.txt')
     #reshape t
     t1=np.asarray(t_val[0])
     t2=np.asarray(t_val[1])
@@ -71,34 +71,33 @@ for i in range(1,17):
     t1min=-np.max(a)
     t2max=np.max(b)
     t2min=-np.max(b)
-    plot_number=1
-    plot_number2=1
     t_gain=t1
     t_loss=t2
     t_gain[abs(t_gain)<=2.3]=np.nan
     t_loss[abs(t_loss)<=2.3]=np.nan
     
     fig = plt.figure(figsize = (54.2, 28.4))
-    for plot_number in range(2, 32):
-        axis = fig.add_subplot(5, 6, plot_number-1)
-        plt.imshow(base[:, :, subject], cmap = plt.get_cmap('gray'), alpha = 0.3)
+    for plot_number in range(1, 31):
+        axis = fig.add_subplot(5, 6, plot_number)
+        plt.imshow(base[:, :, plot_number], cmap = plt.get_cmap('gray'), alpha = 0.3)
         img=axis.imshow(t_gain[:, :, plot_number], cmap=plt.get_cmap('rainbow'), alpha=0.5,interpolation='nearest',vmin=t_gainmin, vmax=t_gainmax)
         plt.colorbar(img, ax=axis)
         axis.get_xaxis().set_visible(False)
         axis.get_yaxis().set_visible(False)
-        axis.set_title('Slice ' + str(plot_number))
-    plt.savefig('../../results/figures/t_gain_sub'+str(i)+'.png', dpi=40) 
+        axis.set_title('Slice ' + str(plot_number+30))
+    plt.savefig('../../results/figures/t_gain_standard_sub'+str(i)+'.png', dpi=40) 
     plt.close()
     
     fig = plt.figure(figsize = (54.2, 28.4))
-    for plot_number in range(2, 32):
-        axis = fig.add_subplot(5, 6, plot_number-1)
+    for plot_number in range(1, 31):
+        axis = fig.add_subplot(5, 6, plot_number)
+        plt.imshow(base[:, :, plot_number], cmap = plt.get_cmap('gray'), alpha = 0.3)
         img=axis.imshow(t_loss[:, :, plot_number], cmap=plt.get_cmap('rainbow'), alpha=0.5,interpolation='nearest',vmin=tlossmin, vmax=tlossmax)
         plt.colorbar(img, ax=axis)
         axis.get_xaxis().set_visible(False)
         axis.get_yaxis().set_visible(False)
-        axis.set_title('Slice ' + str(plot_number))
-    plt.savefig('../../results/figures/t_loss_sub'+str(i)+'.png', dpi=40) 
+        axis.set_title('Slice ' + str(plot_number+30))
+    plt.savefig('../../results/figures/t_loss_standard_sub'+str(i)+'.png', dpi=40) 
     plt.close()
 
 
