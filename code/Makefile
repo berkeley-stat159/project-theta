@@ -13,32 +13,10 @@ verbose:
 coverage:
 	nosetests code/utils/tests -w .. --with-coverage --cover-package=utils/functions
 
-# Analysis commands
-
-histogram:
-	python scripts/find_mask_threshold.py
-
-diagnostics:
-	python scripts/graph_lindiag_script.py
-	python scripts/findoutlier.py
-	python scripts/graphoutlier.py
-
-logistic:
-	python scripts/logistic.py
-
-smoothing:
-	python scripts/make_smooth_graphs.py
-
-glm:
-	python scripts/regression_script.py
-
-mixedmodel:
-	python scripts/lme_script.py
-
-analyses:
-	make histogram
-	make smoothing
-	make glm
-	make logistic
-	make diagnostics
-	make mixedmodel
+all: 
+	cd scripts && make histogram
+	cd scripts && make smoothing
+	cd scripts && make glm
+	cd scripts && make logistic
+	cd scripts && make diagnostics
+	cd scripts && make mixedmodel
