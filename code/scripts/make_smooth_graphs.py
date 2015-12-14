@@ -28,7 +28,7 @@ ax4.imshow(spatial4, cmap = 'gray')
 ax4.set_title('fwhm = 3mm')
 
 
-plt.savefig("../../results/smoothed_images.png")
+plt.savefig("../../results/figures/smoothed_images.png")
 plt.close()
 
 
