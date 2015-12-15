@@ -10,8 +10,7 @@ scripts that utilize these functions.
 results directory by nagivating to `project-theta` and running `make resultfolder` 
 
 The following make commands perform an exhaustive analysis for all subjects. 
-For those strictly interested in our paper results figures, also run `make 
-paperfig` to update the figures used in paper.
+For those strictly interested in our paper results figures, see bottom note.
 
 - `make all`: Performs all data analysis, generating the intermediate text file
 saves and all figures (exhaustive) accross all subjects. **WARNING** Due to large
@@ -19,9 +18,6 @@ data size and exhaustive analysis of the mixed effects model, this may more than
 a 1 day. Please run with caution! For updating individual analysis. We recommend 
 nagivating to `project-theta/code/scripts` and running the respective make 
 commands. 
-
-- `make paperfig`: Moves any (updated) figures strictly related to paper 
-results to `project-theta/paper/figures` for inclusion in final paper/slides. 
 
 Other utility make commands include: `clean`, `test`, `verbose` and `coverage`:
 
@@ -47,4 +43,4 @@ The exhaustive results, including all figures and intermediate results files,
 are saved in a local, untracked directory `project-theta/results` initailized 
 by running the make command `make resultfolder` from `project-theta` directory. 
 All paper figures are saved in `project-theta/paper/figures`, which also caches the 
-figures required slides. These figures can be updated by running `make paperfig`.
+figures required slides. 
