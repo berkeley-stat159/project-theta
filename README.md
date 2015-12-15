@@ -26,6 +26,9 @@ and comparing results with Tom's (et al) paper. Please see paper report in
 
 ## Instructions
 
+To generate paper please navigate to `paper` directory and `make all`. 
+Follow the instructions below to reproduce/update analyses figures.
+
 ### Steps to run all analyses:
  
 __Note__: These steps, in particular `make all`, can take dozens of hours due 
@@ -47,7 +50,7 @@ a while as well. To save time one can view the final report without running
 this command by going to the paper directory and running make all from there 
 since the needed figures are already preloaded there. 
 
-### Alternate steps
+### Alternate steps for analyses:
 
 - First, `make data` to download, unzip, and validate data, saving datasets 
 to the data directory. *Note: Run time around 30 minutes*.
