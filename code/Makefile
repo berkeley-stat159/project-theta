@@ -24,4 +24,3 @@ all:
 	cd scripts && make bncorrelates
 	cd scripts && make mixedmodel
 
-paperfig:
