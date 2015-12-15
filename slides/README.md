@@ -2,13 +2,6 @@
 
 * http://pandoc.org/demo/example9/producing-slide-shows-with-pandoc.html
 
-## Progress report presentation
-
-Use the above guide (link) to learn how to use pandoc with beamer to produce
-slides.  I've made a template `progress.md` for you to modify.  I've also
-added a `Makefile` with some recipes to build your slides and delete the
-generated files.
-
 ## Final report presentation
 
 Create a new file `final.md` and add appropriate entries to the `Makefile`.
@@ -20,6 +13,10 @@ Create a new file `final.md` and add appropriate entries to the `Makefile`.
 `make` to clean and build both progress and final slides
 `make final` to build the final slides
 `make progress` to build the progress slides
+
+**Note**: the slides include an old figure `lamba_boxplot.png`, we have 
+included it here for completeness, all other figures are generated/updated
+automatically with analyses. Navigate to `code` directory to perform analyses.
 
 ### Making the slides
 

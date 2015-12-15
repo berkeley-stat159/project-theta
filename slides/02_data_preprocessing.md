@@ -1,6 +1,6 @@
 ##Smoothed Spatial Images
 \begin{figure}
-    \includegraphics[width=1\linewidth]{../code/utils/smoothed_images.png}
+    \includegraphics[width=1\linewidth]{../paper/figures/smoothed_images.png}
     \label{Smoothed Spatial Images}
 \end{figure}
 
