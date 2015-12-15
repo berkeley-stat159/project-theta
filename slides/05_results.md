@@ -28,6 +28,7 @@ median = 89.86\% min = 79.92\% max = 98.45\%
 \centering
 \includegraphics[scale=0.27]{lambda_boxplot.png}
 \end{figure}
+
 The behavioral loss aversion $\lambda$ (median=1.94, mean=2.18) indicate that participants are indifferent to gambles whose gain are appoxiamtely twice as the loss. 
 
 ## Linear Regression on fMRI data
