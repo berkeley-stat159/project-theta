@@ -5,10 +5,6 @@ import sys
 sys.path.append('../utils/functions')
 import smooth_gaussian
 
-#possibly put in os function to specify path later
-
-#this file was more of a test, but since can easily adapt it into a more useful
-#script i left it in utils
 
 
 
@@ -32,7 +28,7 @@ ax4.imshow(spatial4, cmap = 'gray')
 ax4.set_title('fwhm = 3mm')
 
 
-plt.savefig("../../paper/figures/smoothed_images.png")
+plt.savefig("../../results/figures/smoothed_images.png")
 plt.close()
 
 

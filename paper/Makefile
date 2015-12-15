@@ -1,4 +1,4 @@
-TITLE="report"
+TITLE="report_final"
 
 all:
 	pdflatex $(TITLE).tex
