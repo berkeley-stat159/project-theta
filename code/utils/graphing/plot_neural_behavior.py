@@ -30,8 +30,8 @@ def plot_neur_beh(x, y, z, betagains, betalosses, neural):
      """ 
 
     X = -betagains[x, y, z, :] - betalosses[x, y, z, :]
-    slope, intercept, r_value, p_value, std_err = stats.linregress(X,Y)
-    plt.scatter(X,Y)
+    slope, intercept, r_value, p_value, std_err = stats.linregress(X,neural)
+    plt.scatter(X,neural)
     X_plot = np.linspace(-75,130,100)
     plt.plot(X_plot, X_plot*slope + intercept)
     plt.xlabel(r'Neural loss aversion ($-\beta loss-\beta{gain}$)' , fontsize=12)

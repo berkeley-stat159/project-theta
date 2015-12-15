@@ -1,12 +1,15 @@
-.PHONY: all clean coverage test verbose
+.PHONY: all data clean coverage test verbose
 
 resultfolder:
 	mkdir -p results/texts results/figures
 
-all:
+data:
 	cd data && make data
 	cd data && make unzip
 	cd data && make validate
+
+all:
+	make data
 	cd code && make all
 	cd code && make paperfig
 	cd paper && make all
