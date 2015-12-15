@@ -290,7 +290,7 @@ use the mean squared error to summarize the errors.
 ROC curve and AUC are mostly used for model selection of a binary classifier. 
 In the behavioral analysis, we use logistic regression as the binary 
 classifier for the response of reject and accept. To check the performance of 
-the logistic classifier as its discrimination varied, we plot the ROC 
+the logistic classifier, as its discrimination varied, we plot the ROC 
 (receiver operating characteristic) curve and calculate the corresponding AUC 
 (areas under the curve). In the model analysis, we prefer models with bigger 
 AUC values.
@@ -341,11 +341,11 @@ eliminate the influence due to the variance across runs.
 \subsubsection{Multiple Test correction}
 
 In statistical inference for fMRI data, we usually have more than tens of 
-thousands of hypothesis tests, thus massive multiple correction problems. 
+thousands of hypothesis tests, and thus massive multiple correction problems. 
 Using thresholds without correction could be problematic. Common multiple 
 correction methods (such as Bonferroni) require adjusting the p-values. 
-However, imposing high statistical thresholds that may mask voxels that do have 
-real effects. To avoid this loss, we use uncorrected threshold and choose the 
+However, imposing high statistical thresholds may mask voxels that do have 
+real effects. To avoid this loss, we use uncorrected thresholds and choose the 
 threshold on a case-by-case basis.
 
 
