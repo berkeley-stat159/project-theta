@@ -21,7 +21,8 @@ pgain = np.loadtxt("../../results/texts/pgain.txt")
 slopegain = np.loadtxt("../../results/texts/slopegain.txt")
 ploss = np.loadtxt("../../results/texts/ploss.txt")
 slopeloss = np.loadtxt("../../results/texts/slopeloss.txt")
-
+pgainloss = np.loadtxt("../../results/texts/pgainloss.txt")
+slopegainloss = np.loadtxt("../../results/texts/slopegainloss.txt")
 """
 The following part of script will plot the significant gain p values of the linear regression
 between behavial loss aversion and neural loss averision on standard brain.The slices is by z
@@ -150,18 +151,11 @@ betagains = np.empty([902629, 16])
 betalosses = np.empty([902629, 16])
 
 for i in np.arange(1, 17):
-    betas = np.loadtxt("../../results/texts/beta"+str(i)+".txt")
+    betas = np.loadtxt("../../results/texts/sub0" + str(i).zfill(2) +"_standard_beta.txt")
     betas = betas.transpose()
     betagains[:, i-1] = betas[:,0]
     betalosses[:, i-1] = betas[:,1]
 
-betagains = np.empty([902629, 16])
-betalosses = np.empty([902629, 16])
-for i in np.arange(1, 17):
-    betas = np.loadtxt("../../results/texts/beta"+str(i)+".txt")
-    betas = betas.transpose()
-    betagains[:, i-1] = betas[:,0]
-    betalosses[:, i-1] = betas[:,1]
 
 betagains = betagains.reshape(91, 109, 91, 16)
 betalosses = betalosses.reshape(91, 109, 91, 16)

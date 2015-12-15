@@ -7,7 +7,7 @@ Run the following make commands for running the individual analysis. Note that
 
 - `make histograms`: Generates preliminary histograms of all subjects, all runs
 for all data in order to identify masking thresholds of smoothed non-standardize
-BOLD data
+BOLD data. May take around 15 minutes.
 - `make diagnostics`: Generates diagnostics figures for checking the assumptions
 of the linear model (for subject 2) and plots dvars and framewise displacements
 of non-standardized ds005 BOLD data. 
@@ -30,8 +30,8 @@ time consuming analysis we have. Running on all subjects may take around 1 day.
 Caution when running! *Run after `make glm` and `make logistic`.*
 - `make bncorrelates` performs linear regression on standardized beta results 
 and lambas of logistic regression, generates figures of neural/behavorial loss 
-aversion and significant p-values by region/voxel. *Run after `make glmstandard`
-and `make logistic`.*
+aversion and significant p-values by region/voxel. **Warning**: this may take 
+over an hour. *Run after `make glmstandard` and `make logistic`.*
 
 ## Individual Script Documentation
 
