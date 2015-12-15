@@ -75,10 +75,10 @@ directory
 through make commands there or make all here.
 - `paper` contains the final report, report.pdf, once the appropriate make 
 commands are run, either here or in paper. It also has the relevant figures for 
-the paper
-- `slides` contain our presentation slides used in class (Stat 159/259)
-- `requirements.txt` is the a text file listing the required package versions 
-- `tools` contains the material related to travis ci
+the paper.
+- `slides` contain our presentation slides used in class (Stat 159/259).
+- `requirements.txt` is the a text file listing the required package versions. 
+- `tools` contains the material related to travis ci.
 
 ## Acknowledgments
 
