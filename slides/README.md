@@ -2,6 +2,9 @@
 
 * http://pandoc.org/demo/example9/producing-slide-shows-with-pandoc.html
 
+##Instructions
+To build the slides simply use make command `make all` from this directory
+
 ## Progress report presentation
 
 Use the above guide (link) to learn how to use pandoc with beamer to produce
