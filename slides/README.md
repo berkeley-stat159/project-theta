@@ -1,10 +1,9 @@
 # Slides
 
+See link below the learn how to use pandoc with beamer to produce
+slides.
+
 * http://pandoc.org/demo/example9/producing-slide-shows-with-pandoc.html
-
-## Final report presentation
-
-Create a new file `final.md` and add appropriate entries to the `Makefile`.
 
 ## Instructions
 
