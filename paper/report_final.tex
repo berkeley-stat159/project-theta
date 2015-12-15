@@ -95,8 +95,8 @@ The choices are recorded by denoting response numbers 1, 2, 3, and 4,
 respectively. Furthermore, the response time for each gambling decision was 
 recorded in seconds. 
 \subsection{BOLD Data}
-\subsubsection{RAW Data}
-Raw Blood-oxygen-level dependent (BOLD) imaging data were collected from each
+\subsubsection{Raw Data}
+Raw blood-oxygen-level dependent (BOLD) imaging data was collected from each
 subject as he/she performed the gamble tasks. 240 time scans were done on each
 run with a time between each scan of 2 seconds. So total scanning time is 480
 seconds. Each scan consists of a snapshot consisting of a 64 by 64 by 34 image
@@ -129,8 +129,8 @@ across the run and plot the histogram for each run and subject to help
 manually determine a good threshold for a mask we use to isolate more active 
 voxels in the brain. This helps us find beta coefficients for more relevant 
 voxels. We also model and remove the linear and quadratic drift that may be 
-present in the runs. We use subject 2 run 2 to show an example of our outliers r
-esults. (Green dotted line in DVARS: thredhold for outliers, Greenline in mean 
+present in the runs. We use subject 2 run 2 to show an example of our outliers
+results. (Green dotted line in DVARS: thredhold for outliers, Greenline in mean 
 signal: fitted smooth curve of the bold signal)
 
 \begin{figure}[H]
@@ -144,8 +144,8 @@ signal: fitted smooth curve of the bold signal)
 \subsection{Models}
 
 In this section, we present the models we used to find the relationship between 
-behavioral and neural loss aversions cross participants as well as how 
-participants react to different loss and gain levels. For behavioral data, we 
+behavioral and neural loss aversions across participants as well as how 
+participants reacted to different loss and gain levels. For behavioral data, we 
 fit the logistic regression models for each subject and use the coefficients of 
 loss and gain to calculate the behavioral loss aversion levels. For neural d
 ata, we fit both linear multiple regression models and mixed-effects models in 
@@ -168,8 +168,8 @@ Following is the model:
 \beta_{gain} * X_{gain}
 \end{equation}
 
-where $X_{loss}$ and $X_{gain}$ are the potential loss and gain value 
-separately, $Y_{resp}$ is a categorical independent variable representing the 
+where $X_{loss}$ and $X_{gain}$ are the separate potential loss and gain values,
+$Y_{resp}$ is a categorical independent variable representing the 
 subjects' decision on whether to accept or reject the gambles:
 
 \begin{displaymath}
@@ -180,7 +180,7 @@ Y_{resp} = \left \{ \begin{array}{ll}
 \end{displaymath}
 
 Then we calculate the behavioral loss aversion ($ \lambda $) for each subject 
-as follows, note that for simplicity, we collapse 3 runs into one model for 
+as follows. Note that for simplicity, we collapse 3 runs into one model for 
 each participant.
 
 \begin{equation}
@@ -233,13 +233,13 @@ positive or negative correlation with increasing loss or gain levels.
 
 \subsubsection{Mixed-effects model on fMRI data}
 
-The fact that we have 3 runs of data for each participants leads us to consider 
-using mixed effects model to analysis the data set. The mixed effect model adds 
+The fact that we have 3 runs of data for each participants led us to implement 
+using a mixed effects model to analyze the data set. The mixed effect model adds 
 a random effects term, which is associated with individual experimental units 
 drawn at random from a population. In this case, it measures the difference 
 between the average brain activation in run i and the 
 average brain activation in all three runs. For each voxel $i$, we fit the 
-following mixed-effects models, note that here we only include the intercept 
+following mixed-effects models; note that here we only include the intercept 
 term for random effects (the following model is for the raw data, for the 
 filtered data, we subtract the drift terms).
 
@@ -256,10 +256,10 @@ results of two models.
 \subsubsection{Whole brain analysis of correlation between 
 neural activity and behavioral response across participants}
 
-We then apply the above model on the standard brain to analysis the neural 
+We then apply the above model on the standard brain to analyze the neural 
 activity and behavioral response across participants. For each participant, 
-we pick up several regions with highest activation level, calculate the mean 
-neural loss aversion $\bar{\eta}$ within these specific region. Thus we could 
+we pick up several regions with highest activation levels,and calculate the mean 
+neural loss aversion $\bar{\eta}$ within these specific regions. Thus we 
 examine the relationship between neural activity and behavioral using the 
 following regression model:
 
@@ -273,7 +273,7 @@ where the sample size is the number of participants(16).
 
 \subsubsection{Cross-validation}
 
-To estimate how accurately a predictive model will, we do a k-fold 
+To estimate how accurately a predictive model will be, we do a k-fold 
 cross-validation for each linearmodel. We choose to use 10 fold 
 cross-validation for both behavioral and neural model,
 which means the original sample is randomly partitioned into 10 equal sized 
@@ -304,32 +304,32 @@ our beta coefficients to check whether our beta parameters are statistically
 significant.
 \item \emph{R-Squared value and the adjusted R-squared value} Calculate 
 R-Squared value and the adjusted R-squared value to see how close the data are 
-to the fitted regression line, that is the proportion of variability of the 
-response data explained by the model.
+to the fitted regression line (that is the proportion of variability of the 
+response data explained by the model).
 \end{itemize}
 
 \subsubsection{Normality assumption on linear models}
 
 Since the performance of the test statistic of linear models are largely 
-depend on the normality assumption on the independent variables, the check of 
+dependent on the normality assumption of the independent variables, the check of 
 normality assumption is indispensable. We choose the following methods for 
 normality assumption:
 
 \begin{itemize}
 \item{QQ plot} The quantile-quantile plot (QQ plot) is the most commonly used 
 visualization method to check the validity of a distribution assumption. The 
-basic idea is to compute the empirical quantile the and compare it with the 
-theoretically expected value of a normal distribution. If the data follow a 
-normal distribution, then the points on the Q-Q plot would fall on a straight 
+basic idea is to compute the empirical quantile and compare it with the 
+theoretically expected value of a normal distribution. If the data follows a 
+normal distribution, then the points on the Q-Q plot will fall on a straight 
 line. 
-\item{Residuals vs. fits plot} A residuals vs. fits plot is another most 
+\item{Residuals vs. fits plot} A residuals vs. fits plot is another
 frequently created plot. Under the normality assumption, the residuals should 
-be independent and scatted around.
+be independent and scattered around.
 \end{itemize}
 
 \subsubsection{ANOVA test}
 
-In our dataet, each participant repeated the test for three times, in other 
+In our dataset, each participant repeated the test three times. In other 
 words there are data of 3 runs for each subject. Before collapsing the three 
 runs into one model, we need to check the assumption whether they are i
 ndiscriminate.  To do this, we perform an ANOVA test on each subject to check 
@@ -339,7 +339,7 @@ eliminate the influence due to the variance across runs.
 
 \subsubsection{Multiple Test correction}
 
-In statistical inference for fMRI data, usually we have more than tens of 
+In statistical inference for fMRI data, we usually have more than tens of 
 thousands of hypothesis tests, thus massive multiple correction problems. 
 Using thresholds without correction could be problematic. Common multiple 
 correction methods (such as Bonferroni) require adjusting the p-values. 
@@ -362,7 +362,7 @@ losses and beta gains.
 \subsection{Behavioral analysis}
 
 We performed statistical analysis using both Python and R (The original paper 
-use R package to fit the Logistic models). We use the library 
+used R package to fit the Logistic models). We use the library 
 \emph{scikit-learn} in Python and the \emph{glm} function in \emph{stats} in R 
 to fit the models. Models from two library yields the same results. We shows 
 the plot of the behavioral loss aversion $\lambda$ for every subject 
@@ -381,8 +381,8 @@ whose gain are approximately twice as the loss.
 Following are the model diagnosis:
 
 \begin{itemize}
-\item \emph{Accuracy on the training dataet} We uses the fitted models on the 
-original dataets and compared the estimated class and the true class using the 
+\item \emph{Accuracy on the training dataset} We used the fitted models on the 
+original datasets and compared the estimated class and the true class using the 
 Logistic classifier. The accuracy (proportion of correct classifies) of 
 Logistic models (for 16 participants, 16 
 models in total) on the training set yielded a median of 89.78\% (min=80.97\%, 
@@ -391,7 +391,7 @@ max=99.21\%).
 cross-validation for every subject, they are still performing accuracies of a 
 median of 89.86\% (min=79.92\%, max=98.45\%).
 \item \emph{ROC Curve and AUC} We plot the ROC (receiver operating 
-characteristic) curve to see how the logistic classifier perform as the its 
+characteristic) curve to see how the logistic classifier perform as its 
 discrimination threshold is varied for every subject. We also calculated the 
 corresponding AUC (areas under the curve) for every curve, the area is large 
 for the models (min=0.886, max=0.996), which shows the model performs well 
@@ -455,9 +455,9 @@ the significant t values for the loss coefficients are mostly negative.
 \end{figure}
 
 We can see that significant areas for the gain coefficients and those of the 
-loss coefficients are mostly the same. This suggests that opposite of what 
-most people believes that increasing potential losses should affect the areas 
-of the brain that mediate negative emotions in decision-making, potential 
+loss coefficients are mostly the same. This suggests the opposite of what 
+most people believe (that increasing potential losses should affect the areas 
+of the brain that mediate negative emotions in decision-making). Potential 
 losses were represented by decreasing activity in the same areas that are 
 sensitive to potential gains.
 
@@ -474,14 +474,13 @@ considered.
 
 \subsubsection{Model Diagnosis for linear regression}
 
-From the results of the QQ plot, we can see that in this randomly picture. The 
-residuals are approximately normal distribution and showed constant variance. 
-The green line is the QQ plot 
-of the normal distribution. The blue line is the QQ plot of residuals. They 
+From the results of the QQ plot, we can see that in the residuals are approximately 
+normally distributed and showed constant variance. In the first graph the green line is the QQ plot 
+of the normal distribution, the blue line is the QQ plot of residuals. They 
 look quite similar. The second plot is the scatter plot of the residuals. We 
-can see that the residuals are approximately equally distributed by 0. This 
+can see that the residuals are approximately equally distributed around 0. This 
 means that the residuals are not correlated to the fitted values. To conclude, 
-the residuals are approximately normal distributed.
+the residuals are approximately normally distributed.
 
 \begin{figure}[H]
     \centering
