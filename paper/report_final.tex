@@ -1,6 +1,6 @@
 \documentclass[11pt]{article}
 
-\usepackage[margin=0.75in]{geometry}
+\usepackage[margin=0.76in]{geometry}
 \usepackage{indentfirst}
 \usepackage{graphicx}
 \usepackage{float}
@@ -34,7 +34,7 @@
 \par Our paper is the \textit{Neural Basis of Loss Aversion in Decision-MakingUnder Risk}.
 %\cite{Tom2007LossAversion}
 The experiment investigates the 
-phenomenon of loss aversion - where individuals decisions are influenced by the
+phenomenon of loss aversion - where individuals' decisions are influenced by the
 amount of potential loss more than they are by the amount of potential gains. 
 
 \par 
@@ -92,12 +92,12 @@ conditions, with events corresponding to
   \item Parametric Loss
   \item Distance from Indifference
 \end{enumerate}
-We refer to this provided dataset as filtered or standardized to differentiate from the raw
-BOLD dataset of which we preprocess and also run analyses on.
+We refer to this provided dataet as filtered or standardized to differentiate from the raw
+BOLD dataet of which we preprocess and also run analyses on.
 
 \subsection{Processing}
 Before we run our analyses and fit betas to our data, we first take a few 
-steps to clean the raw BOLD datasets. We graph the dvars (RMS of the signal 
+steps to clean the raw BOLD dataets. We graph the dvars (RMS of the signal 
 derivatives) and the framewise displacement, and we use that in conjunction 
 with the mean signal of the BOLD data to determine outliers to remove. The 
 BOLD data is smoothed spatially in order to make clearer the signal in 
@@ -119,13 +119,13 @@ We use subject 2 run 2 to show an example of our outliers results.
 
 \subsection{Models}
 
-In this section, we present the models we used to find the relationship between behavioral and neural loss aversion cross participants as well as how participants react to different loss and gain levels. For behavioral data, we fit the logistic regression models for each subject and use the coefficients of loss and gain to calculate the behavioral loss aversion levels. For neural data, we fit both linear multiple regression models and mixed-effects models in order to collapse three runs for each subject into one model. We analyze the fMRI data using both models and compare the results we obtained. Neural loss aversion levels are calculated using the coefficients of loss and gain, and are done for both the raw and filtered datasets. However we do not run a mixed effects model on the filtered dataset due to size constraints.   
+In this section, we present the models we used to find the relationship between behavioral and neural loss aversions cross participants as well as how participants react to different loss and gain levels. For behavioral data, we fit the logistic regression models for each subject and use the coefficients of loss and gain to calculate the behavioral loss aversion levels. For neural data, we fit both linear multiple regression models and mixed-effects models in order to collapse three runs for each subject into one model. We analyze the fMRI data using both models and compare the results we obtained. Neural loss aversion levels are calculated using the coefficients of loss and gain, and are done for both the raw and filtered dataets. However we do not run a mixed effects model on the filtered dataet due to size constraints.   
 %% Moreover, we may use the robust regression to reduce the influence of outliers.
 %% At last, we find out find the correlation between the behavioral and neural loss aversion cross participants using the loss aversion data obtained from the aforementioned models.
 
 \subsubsection{Behavioral analysis using Logistic regression}
 
-We fit a Logistic regression model on the behavioral data to examine how the response of individuals relates to the size of potential gain and loss of a gamble. Originally there are four acceptability judgments categories, here we collapse the categories into binary response(accept/reject). Following is the model:
+We fit a Logistic regression model on the behavioral data to examine how the response of individuals relates to the size of potential gain and loss of a gamble. Originally there are four acceptability judgments categories, here we collapse the categories into binary response (accept/reject). Following is the model:
 
 \begin{equation}
 \textrm{log}\frac{p(X)}{1-p(X)} = \beta_0 + \beta_{loss} *X_{loss} + \beta_{gain} * X_{gain}
@@ -140,7 +140,7 @@ Y_{resp} = \left \{ \begin{array}{ll}
 \end{array} \right .
 \end{displaymath}
 
-Then we calculate the the behavioral loss aversion ($ \lambda $) for each subject as follows, note that for simplicity, we collapse 3 runs into one model for each participant.
+Then we calculate the behavioral loss aversion ($ \lambda $) for each subject as follows, note that for simplicity, we collapse 3 runs into one model for each participant.
 
 \begin{equation}
 \lambda = -\beta_{loss} / \beta_{gain}
@@ -183,7 +183,7 @@ neural loss aversion $\eta_i$:
 Using the voxelwise neural loss aversion, we do a region-specific analysis on 
 BOLD data for each participant. That is, we calculate and plot heat maps of the t values
 for $\beta_{loss}$ and $\beta_{gain}$ for each participant to find out the 
-regions with significant activation and regions which show a significant 
+regions with significant activation and regions, which show a significant 
 positive or negative correlation with increasing loss or gain levels.
 
 \subsubsection{Mixed-effects model on fMRI data}
@@ -247,17 +247,17 @@ significant.
 Since the performance of the test statistic of linear models are largely depend on the normality assumption on the independent variables, the check of normality assumption is indispensable. We choose the following methods for normality assumption:
 
 \begin{itemize}
-\item{QQ plot} The quantile-quantile plot (QQ plot) is the most commonly-used visualisation method to check the validity of a distribution assumption. The basic idea is to compute the empirical quantile the and compare it with the theoretically expected value of a normal distribution. If the datas follow a normal distribution, then the points on the Q-Q plot would fall on a straight line. 
+\item{QQ plot} The quantile-quantile plot (QQ plot) is the most commonly used visualization method to check the validity of a distribution assumption. The basic idea is to compute the empirical quantile the and compare it with the theoretically expected value of a normal distribution. If the data follow a normal distribution, then the points on the Q-Q plot would fall on a straight line. 
 \item{Residuals vs. fits plot} A residuals vs. fits plot is another most frequently created plot. Under the normality assumption, the residuals should be independent and scatted around.
 \end{itemize}
 
 \subsubsection{ANOVA test}
 
-In our dataset, each participant repeated the test for three times, in other words there are datas of 3 runs for each subject. Before collapsing the three runs into one model, we need to check the assumption whether they are indiscriminate.  To do this, we perform an ANOVA test on each subject to check the difference of means across runs. The significance of an AVOVA test may show that there are difference across runs, thus we may seek other methods to eliminate the influence due to the variance across runs.
+In our dataet, each participant repeated the test for three times, in other words there are data of 3 runs for each subject. Before collapsing the three runs into one model, we need to check the assumption whether they are indiscriminate.  To do this, we perform an ANOVA test on each subject to check the difference of means across runs. The significance of an AVOVA test may show that there are difference across runs, thus we may seek other methods to eliminate the influence due to the variance across runs.
 
 \subsubsection{Multiple Test correction}
 
-In statistical inference for fMRI data, usually we have more than tens of thousands of hypothesis tests, thus massive multiple correction problems. Using thresholds without correction could be problematic. Common multiple correction methods (such as Bonferroni) requires adjusting the p-values. However, imposing high statistical thresholds that may mask voxels that do have real effects. To avoid this loss, we use uncorrected threshold and choose the threshold on a case-by-case basis.
+In statistical inference for fMRI data, usually we have more than tens of thousands of hypothesis tests, thus massive multiple correction problems. Using thresholds without correction could be problematic. Common multiple correction methods (such as Bonferroni) require adjusting the p-values. However, imposing high statistical thresholds that may mask voxels that do have real effects. To avoid this loss, we use uncorrected threshold and choose the threshold on a case-by-case basis.
 
 
 \subsubsection{Cluster analysis}
@@ -282,7 +282,7 @@ We performed statistical analysis using both Python and R (The original paper us
 Following are the model diagnosis:
 
 \begin{itemize}
-\item \emph{Accuracy on the training dataset} We uses the fitted models on the original datasets and compared the estimated class and the true class using the Logistic classifier. The accuracy of Logistic models (for 16 participants, 16 models in total) on the training set yielded a median of 89.78\% (min=80.97\%, max=99.21\%).
+\item \emph{Accuracy on the training dataet} We uses the fitted models on the original dataets and compared the estimated class and the true class using the Logistic classifier. The accuracy of Logistic models (for 16 participants, 16 models in total) on the training set yielded a median of 89.78\% (min=80.97\%, max=99.21\%).
 \item \emph{Cross-validation} We did the model evaluation using 10-fold cross-validation for every subject, they are still performing accuracies of a median of 89.86\% (min=79.92\%, max=98.45\%).
 \item \emph{ROC Curve and AUC} We plot the ROC (receiver operating characteristic) curve to see how the logistic classifier perform as the its discrimination threshold is varied for every subject. We also calculated the corresponding AUC (areas under the curve) for every curve, the area is large for the models (min=0.886, max=0.996), which shows the model performs well under various discrimination threshold.
 
@@ -362,6 +362,8 @@ aversion affects brain activation when potential gains and losses are
 considered.
 
 \subsubsection{Model Diagnosis for linear regression}
+
+From the results of the QQ plot, we can see that in this randomly picture. The residuals are approximately normal distribution. The green line is the QQ plot of the normal distribution. The blue line is the QQ plot of residuals. They look quite similar. The second plot is the scatter plot of the residuals. We can see that the residuals are approximately equally distributed by 0. This means that the residuals are not correlated to the fitted values. To conclude, the residuals are approximately normal distributed.
 
 \begin{figure}[H]
     \centering
@@ -516,7 +518,7 @@ the scripts for running the mixed effects model is very time-exhaustive. On
 our laptop, that script alone took over a day (Boying can confirm). Perhaps
 this is due to the lower processing speeds on our laptops compared with the
 standard desktop/research computing hardware used in standard fMRI research
-settings. Additionally, by using the ds005 dataset with the standard mni 
+settings. Additionally, by using the ds005 dataet with the standard mni 
 template, the regression scripts takes more than 4 hours as well. This is due
 to the significantly larger size of the filtered data (almost 15 GB). 
 Nonetheless, we managed to complete our analysis and generated the figures 
@@ -530,7 +532,7 @@ optimization.
 \subsection{Further Research}
 
 \par Looking at our data of subjects, it may be of interest to consider a 
-demographic grouping by gender because our dataset contains the demographics of 
+demographic grouping by gender because our dataet contains the demographics of 
 our 16 subjects, with the extra information of gender and age. A question to 
 potentially address: Is there a significant difference to loss aversion across
 genders?
