@@ -19,6 +19,11 @@ a 1 day. Please run with caution! For updating individual analysis. We recommend
 nagivating to `project-theta/code/scripts` and running the respective make 
 commands. 
 
+- `make paperfig`: Moves any (updated) figures strictly related to paper 
+results to `project-theta/paper/figures` for inclusion in final paper/slides.
+Note: Only updates the files currently existing in `paper/figures` that are 
+new in `results/figures`. See files transfered in bash output of this command.
+
 Other utility make commands include: `clean`, `test`, `verbose` and `coverage`:
 
 - `make test`: Runs function tests in utils/tests on functions that are 
